@@ -9,14 +9,14 @@ attr_accessor :health_points, :attack_power
     # Also also give code outside this class access to these variables (via attr_reader, attr_writer or attr_accessor)
   end
 
-  def damage(attack_power)
-    @health_points -= attack_power
+  def damage(attacker)
+    @health_points -= attacker.attack_power
+  
   end
 
   def attack!(enemy)
-    enemy.damage(attack_power)
     
-
+    enemy.damage(attack_power) unless dead?
   end
 
 
